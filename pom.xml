@@ -45,6 +45,12 @@
             <artifactId>feign-core</artifactId>
             <version>8.18.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.2.12.RELEASE</version>
+        </dependency>
 
     </dependencies>
 
