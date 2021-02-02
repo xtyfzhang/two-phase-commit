@@ -5,7 +5,7 @@ public interface Transaction {
     /**
      * 开启事务
      */
-    void open();
+    Long open();
 
     /**
      * 提交事务完成后，需要关闭事务
