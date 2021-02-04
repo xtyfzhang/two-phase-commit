@@ -20,17 +20,17 @@ public interface TransactionServer {
      * 向事务协调中心发送执行结果
      */
     @PostMapping("/commit")
-    void commit(Long TransactionId);
+    void commit(Long transactionId);
 
     /**
      * 向事务协调中心发送执行结果
      */
     @PostMapping("/rollback")
-    void rollback(Long TransactionId);
+    void rollback(Long transactionId);
 
     /**
      * 向事务协调中心发送执行结果
      */
     @PostMapping("/close")
-    void close(Long TransactionId);
+    void close(Long transactionId);
 }

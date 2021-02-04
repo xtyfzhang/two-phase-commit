@@ -8,10 +8,10 @@ public interface TransactionManager {
     /**
      * 事务提交
      */
-    void commit();
+    void commit(Long transactionId);
 
     /**
      * 事务回滚
      */
-    void rollback();
+    void rollback(Long transactionId);
 }

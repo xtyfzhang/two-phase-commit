@@ -9,11 +9,6 @@ import lombok.Data;
 public class ServerInfo {
 
     /**
-     * 通知方式: 普通模式、feign 等
-     */
-    private String mode;
-
-    /**
      * 服务的名称
      */
     private String serverName;
