@@ -1,6 +1,7 @@
 package twophasecommit;
 
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -8,6 +9,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import twophasecommit.enums.TransactionStage;
 
 @Component
+@Data
 public class TransactionContext  {
 
     /**
@@ -15,6 +17,11 @@ public class TransactionContext  {
      */
     @Autowired
     private ApplicationContext applicationContext;
+
+    /**
+     * 事务管理器
+     */
+    private PlatformTransactionManager platformTransactionManager;
 
     /**
      * 事务ID信息

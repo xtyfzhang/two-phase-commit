@@ -9,6 +9,11 @@ import lombok.Data;
 public class ServerInfo {
 
     /**
+     * 事务ID
+     */
+    private Long transactionId;
+
+    /**
      * 服务的名称
      */
     private String serverName;
