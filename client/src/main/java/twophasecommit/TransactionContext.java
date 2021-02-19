@@ -34,7 +34,9 @@ public class TransactionContext  {
     private TransactionStage transactionStage;
 
     public  PlatformTransactionManager getDefaultTransactionManager(){
-        return applicationContext.getBean(PlatformTransactionManager.class);
+        PlatformTransactionManager platformTransactionManager = applicationContext.getBean(PlatformTransactionManager.class);
+        this.platformTransactionManager = platformTransactionManager;
+        return platformTransactionManager;
     }
 
     public Long getTransactionId() {

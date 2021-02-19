@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * Add to the service method on provider side, 
  * it enable the method to be async executed and then waiting commit from sponsor.
  *  
- * @author John.Huang
+ * @author zhangzhen
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

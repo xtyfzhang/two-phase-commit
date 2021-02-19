@@ -3,6 +3,8 @@ package twophasecommit.aspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
+import twophasecommit.TransactionContext;
 import twophasecommit.annotation.TPCTransactional;
 
 /**
@@ -11,14 +13,19 @@ import twophasecommit.annotation.TPCTransactional;
 @Aspect
 public class TransactionAspect {
 
-    @Around("@annotation(net.xdevelop.tpc.annotation.TPCTransactional)&&@annotation(tpcTransactional)")
+    @Autowired
+    private TransactionContext transactionContext;
+
+    @Around("@annotation(twophasecommit.annotation.TPCTransactional)&&@annotation(tpcTransactional)")
     public Object execute(ProceedingJoinPoint pjp, TPCTransactional tpcTransactional) throws Throwable {
 
-       //服务注册
-
+        // 设置事务管理器
+        transactionContext.getDefaultTransactionManager();
         // 执行
+        Object resultObj = pjp.proceed();
 
 
-        // 执行结果发送到
+        // 返回结果
+        return resultObj;
     }
 }
