@@ -8,6 +8,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import twophasecommit.TransactionContext;
+import twophasecommit.feign.TransactionServer;
 
 /**
  * 事务确定端
@@ -18,6 +19,9 @@ public class TransactionController {
     @Autowired
     private TransactionContext transactionContext;
 
+    @Autowired
+    private TransactionServer transactionServer;
+
     @PostMapping("/commit")
     public void commit(Long transactionId){
 
@@ -25,6 +29,7 @@ public class TransactionController {
         DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRED);
         TransactionStatus transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);
         platformTransactionManager.commit(transactionStatus);
+        transactionServer.close(transactionContext.getTransactionId());
     }
 
     @PostMapping("/rollback")
@@ -34,5 +39,6 @@ public class TransactionController {
         DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRED);
         TransactionStatus transactionStatus = platformTransactionManager.getTransaction(transactionDefinition);
         platformTransactionManager.rollback(transactionStatus);
+        transactionServer.close(transactionContext.getTransactionId());
     }
 }

@@ -1,0 +1,14 @@
+
+server:
+  port: 8081
+  tomcat:
+    max-threads: 500
+
+logging:
+  level:
+    root: info
+    path: ./logs/
+    
+spring:
+  application:
+    name: client
