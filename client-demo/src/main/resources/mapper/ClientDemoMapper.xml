@@ -4,6 +4,6 @@
 <mapper namespace="twophasecommit.mapper.ClientDemoMapper">
     
     <update id="updateTest">
-
+        update test set name = #{name} where id = #{id}
     </update>
 </mapper>
