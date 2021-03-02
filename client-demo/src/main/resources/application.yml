@@ -1,10 +1,4 @@
-server:
-  port: 8081
-  tomcat:
-    max-threads: 500
 spring:
-  application:
-    name: client
   transaction:
     configuration:
       serverUrl: localhost:8083
@@ -13,7 +7,7 @@ spring:
     username: root
     password: xcwzwq626zz
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://bj-cdb-r5tpbsee.sql.tencentcdb.com:61014/test
+    url: jdbc:mysql://bj-cdb-r5tpbsee.sql.tencentcdb.com:61014/test?useUnicode=true&characterEncoding=UTF-8
     type: com.alibaba.druid.pool.DruidDataSource
     #   数据源其他配置
     druid:

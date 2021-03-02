@@ -1,6 +1,7 @@
 package twophasecommit.feign;
 
 
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * 事务服务接口，用于获取事务ID、投票阶段以及提交阶段
  */
+@FeignClient("manager")
 public interface TransactionServer {
 
     /**
